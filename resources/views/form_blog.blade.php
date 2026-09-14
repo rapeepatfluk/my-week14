@@ -20,7 +20,7 @@
 
         <div class="form-group mb-3">
             <label for="content">เนื้อหาบทความ</label>
-            <textarea class="form-control" cols="30" rows="6" id="content" name="content"></textarea>
+            <textarea class="form-control"  id="content" cols="30" rows="6" name="content"></textarea>
         </div>
         @error('content')
             <div class="my-2">

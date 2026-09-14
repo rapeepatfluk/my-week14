@@ -3,9 +3,15 @@
 @section('title', 'หน้าแรก')
 
 @section('content')
-    <h2>ยินดีต้อนรับเข้าสู่เว็บไซต์ของฉัน My App 2</h2>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem eveniet, quis odit architecto illum
-        dicta
-        earum totam aliquam id, corrupti consectetur delectus corporis sapiente minus. Amet optio inventore ipsa ut!
-    </p>
+    <h2>บทความล่าสุด</h2>
+    <hr>
+
+@foreach ($blog as $blog)
+    <h2>{{$blog->title}}</h2>
+    <div>{{ Str::limit(strip_tags($blog->content), 100) }}</div>
+    <a href="/detail/{{$blog->id}}">อ่านเพิ่มเติม</a>
+    <br>
+    <hr>
+@endforeach
 @endsection
+

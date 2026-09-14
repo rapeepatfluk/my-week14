@@ -4,19 +4,17 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\BlogController;
+//นักอ่าน
+Route::get('/', [BlogController::class, 'index'])->name('index');
+Route::get('detail/{id}',[BlogController::class, 'detail'])->name('detail');
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/welcome', function () {
+//     return view('welcome');
+// });
 
-Route::fallback(function () {
-    return "<h1>404 ไม่พบหน้าเว็บ</h1>";
-}); 
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
-
+//นักเขียน
 Route::get('/about', function () {
     return view('about');
 });
@@ -28,6 +26,8 @@ Route::get('student/{id}', function ($id) {
     return view("Student",['id'=>$id]);
     
 })->name('student.profile');
+
+
 
 
 Route::get('/abouts', [AdminController::class,'about2'])->name ("about2");
